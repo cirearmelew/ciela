@@ -1,0 +1,791 @@
+/* discord.css (Đầy đủ - Không cần sửa thêm, fix chính ở inline styles JSX) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Custom Cursor */
+:root {
+  --custom-cursor: url('https://feorev.github.io/Themes/Discord/FVUI/assets/Cursor.cur'), auto;
+}
+
+* {
+  cursor: var(--custom-cursor) !important;
+}
+
+input,
+textarea,
+button {
+  cursor: var(--custom-cursor) !important;
+}
+
+/* Cursor Trail Effect */
+.cursor-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  z-index: 9998;
+  animation: cursorSparkle 0.8s ease-out forwards;
+}
+
+.cursor-trail::before {
+  content: '✨';
+  position: absolute;
+  font-size: 16px;
+  animation: sparkleRotate 0.8s ease-out forwards;
+}
+
+@keyframes cursorSparkle {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+/* Main Container */
+.discord-container {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8d5ba 0%, #c9e4ca 100%);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.discord-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.discord-wrapper {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.discord-header {
+  margin-bottom: 20px;
+  animation: slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2a2829;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(42, 40, 41, 0.1);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateX(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: rgba(42, 40, 41, 0.2);
+}
+
+.back-button svg {
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover svg {
+  transform: translateX(-3px);
+}
+
+/* Profile Card */
+.discord-profile-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 3px solid rgba(42, 40, 41, 0.1);
+  backdrop-filter: blur(10px);
+  max-width: 1200px;  /* Giữ nguyên: Cố định max-width */
+  /* transition: max-width 0.4s ease; */  /* Giữ comment: Không cần transition cho max-width */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Banner */
+.profile-banner {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 0 30px 30px;
+  position: relative;
+  margin-top: -60px;
+}
+
+/* Avatar Section */
+.avatar-section {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.95);
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.status-indicator.online {
+  background: #43b581;
+  box-shadow: 0 0 15px rgba(67, 181, 129, 0.6);
+}
+
+.status-indicator.idle {
+  background: #faa61a;
+}
+
+.status-indicator.dnd {
+  background: #f04747;
+}
+
+.status-indicator.offline {
+  background: #747f8d;
+}
+
+.profile-header-info {
+  flex: 1;
+  padding-bottom: 10px;
+}
+
+.profile-username {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a2829;
+  margin: 0 0 5px 0;
+  line-height: 1.2;
+}
+
+.profile-display-name {
+  font-size: 1.1rem;
+  color: #5c5a5b;
+  margin: 0 0 10px 0;
+}
+
+.badges-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 1.3rem;
+  padding: 6px 10px;
+  background: rgba(168, 213, 186, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(168, 213, 186, 0.3);
+}
+
+.badge:hover {
+  transform: scale(1.15) rotate(5deg);
+  background: rgba(168, 213, 186, 0.3);
+  border-color: rgba(168, 213, 186, 0.5);
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  gap: 5px;
+  border-bottom: 2px solid rgba(42, 40, 41, 0.1);
+  margin-bottom: 25px;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  color: #5c5a5b;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px 8px 0 0;
+}
+
+.tab-button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #a8d5ba;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-button:hover {
+  color: #2a2829;
+  background: rgba(168, 213, 186, 0.1);
+}
+
+.tab-button.active {
+  color: #2a2829;
+  background: rgba(168, 213, 186, 0.15);
+}
+
+.tab-button.active::after {
+  transform: scaleX(1);
+}
+
+/* Tab Content */
+.tab-content {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Custom Status */
+.custom-status-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(168, 213, 186, 0.15), rgba(201, 228, 202, 0.15));
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 2px solid rgba(168, 213, 186, 0.3);
+  transition: all 0.3s ease;
+}
+
+.custom-status-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 213, 186, 0.3);
+  border-color: rgba(168, 213, 186, 0.5);
+}
+
+.status-emoji {
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.status-text {
+  font-size: 1.05rem;
+  color: #2a2829;
+  font-weight: 500;
+}
+
+/* Widgets Section */
+.widgets-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.section-header h3 {
+  font-size: 1.3rem;
+  color: #2a2829;
+  margin: 0;
+}
+
+.add-widget-btn {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #a8d5ba, #c9e4ca);
+  color: #2a2829;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(168, 213, 186, 0.3);
+}
+
+.add-widget-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(168, 213, 186, 0.5);
+}
+
+/* Widget Card */
+.widget-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(168, 213, 186, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.widget-card:hover {
+  border-color: rgba(168, 213, 186, 0.5);
+  box-shadow: 0 6px 20px rgba(168, 213, 186, 0.2);
+}
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.widget-header h4 {
+  font-size: 1.1rem;
+  color: #2a2829;
+  margin: 0;
+  font-weight: 600;
+}
+
+.widget-subtitle {
+  color: #5c5a5b;
+  font-size: 0.9rem;
+  margin-left: auto;
+}
+
+.add-game-btn {
+  padding: 8px 16px;
+  background: rgba(168, 213, 186, 0.2);
+  color: #2a2829;
+  border: 2px solid rgba(168, 213, 186, 0.3);
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-game-btn:hover {
+  background: rgba(168, 213, 186, 0.3);
+  border-color: rgba(168, 213, 186, 0.5);
+  transform: scale(1.05);
+}
+
+/* Games Grid */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.game-card {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(168, 213, 186, 0.2);
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(168, 213, 186, 0.3);
+  border-color: rgba(168, 213, 186, 0.4);
+}
+
+.game-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.game-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.game-info h5 {
+  font-size: 1rem;
+  color: #2a2829;
+  margin: 0;
+  font-weight: 600;
+}
+
+.game-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 4px 10px;
+  background: rgba(168, 213, 186, 0.2);
+  color: #2a2829;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(168, 213, 186, 0.3);
+}
+
+.friends-playing {
+  font-size: 0.85rem;
+  color: #5c5a5b;
+  margin: 0;
+}
+
+.game-card-small {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(168, 213, 186, 0.2);
+}
+
+.game-card-small:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(168, 213, 186, 0.3);
+  border-color: rgba(168, 213, 186, 0.4);
+}
+
+.game-image-small {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.game-rating {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2a2829;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Activity Content */
+.activity-content {
+  padding: 40px 20px;
+}
+
+.no-activity {
+  text-align: center;
+  padding: 60px 20px;
+  color: #5c5a5b;
+}
+
+.no-activity svg {
+  margin-bottom: 15px;
+}
+
+.no-activity p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* About Content */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-section {
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(168, 213, 186, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.info-section:hover {
+  border-color: rgba(168, 213, 186, 0.5);
+  box-shadow: 0 4px 15px rgba(168, 213, 186, 0.2);
+}
+
+.info-section h3 {
+  font-size: 1.2rem;
+  color: #2a2829;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.bio-text {
+  font-size: 1rem;
+  color: #2a2829;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.info-text {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #2a2829;
+  margin: 0;
+}
+
+/* Connections */
+.connections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.connection-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(168, 213, 186, 0.2);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.connection-item:hover {
+  transform: translateX(8px);
+  border-color: rgba(168, 213, 186, 0.5);
+  box-shadow: 0 4px 15px rgba(168, 213, 186, 0.3);
+}
+
+.connection-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(168, 213, 186, 0.2);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.connection-item:hover .connection-icon {
+  background: rgba(168, 213, 186, 0.4);
+  transform: rotate(10deg) scale(1.1);
+}
+
+.connection-info {
+  flex: 1;
+}
+
+.connection-platform {
+  font-size: 0.85rem;
+  color: #5c5a5b;
+  margin: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.connection-username {
+  font-size: 1rem;
+  color: #2a2829;
+  margin: 0;
+  font-weight: 500;
+}
+
+.external-link {
+  color: #5c5a5b;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.connection-item:hover .external-link {
+  color: #2a2829;
+  transform: translateX(3px);
+}
+
+/* User ID */
+.user-id-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(168, 213, 186, 0.2);
+  border-radius: 10px;
+}
+
+.user-id-box code {
+  flex: 1;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: #2a2829;
+  background: rgba(168, 213, 186, 0.1);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.copy-btn {
+  padding: 8px 12px;
+  background: rgba(168, 213, 186, 0.2);
+  border: 2px solid rgba(168, 213, 186, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn:hover {
+  background: rgba(168, 213, 186, 0.4);
+  border-color: rgba(168, 213, 186, 0.5);
+  transform: scale(1.1);
+}
+
+/* Đã xóa: .discord-profile-card.server-wide { max-width: 1400px; } - Không cần nữa vì giữ cố định */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .discord-container {
+    padding: 15px;
+  }
+
+  .profile-content {
+    padding: 0 20px 20px;
+  }
+
+  .avatar-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-username {
+    font-size: 1.6rem;
+  }
+
+  .tab-navigation {
+    overflow-x: auto;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .widget-subtitle {
+    margin-left: 0;
+  }
+}

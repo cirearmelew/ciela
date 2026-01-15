@@ -1,0 +1,92 @@
+.contact-page {
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card {
+  width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.3);
+  animation: fadeUp 0.45s ease forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-title {
+  font-size: 38px;
+  text-align: center;
+  margin-bottom: 8px;
+  font-family: "Press Start 2P", monospace;
+  letter-spacing: 2px;
+}
+
+.contact-desc {
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  color: #fff;
+  transition: 0.25s;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.10);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
+}
+
+.contact-icon svg {
+  width: 26px;
+  height: 26px;
+  opacity: 0.95;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-size: 13px;
+  color: #c2c2c2;
+}
+
+.contact-value {
+  font-size: 16px;
+  font-weight: 600;
+}

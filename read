@@ -1,0 +1,8 @@
+1. Fix avatar bị banner đè lên trong trang discord profile. ( discord )
+2. thêm hiệu ứng khi chuyển nav item một cách mượt mà hơn ( discord )
+3. mỗi nav item đều phải có box để làm nổi bật hơn và cũng biết là đang ở nav item nào. ( cả home và discord )
+4. làm cho cả trang web cố định 1 scale nhất định, không cho phóng to thu nhỏ. ( cả home và discord )
+5. sửa lại nút loa để điều khiển âm thanh tốt hơn, di chuột vào mới hiện ra thanh điều khiển âm thanh. ( home.jsx )
+6. thêm một số script dành cho các hiệu ứng chuyển động mượt mà hơn. 
+7. thêm mỗi khi click vào hình ảnh trong trang ( ví dụ như avatar hoặc banner ) sẽ hiện hình ảnh lên để nhìn rõ hơn, và nhấn vào bất kì đâu để tắt nó
+8. sửa css lại để hỗ trợ trên mobile và desktop có thể nhìn có thể nhìn site một cách trực quan và tốt hơn.

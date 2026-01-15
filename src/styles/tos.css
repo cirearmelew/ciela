@@ -1,0 +1,289 @@
+/* ===============================
+   TOS – MODERN GRID LAYOUT v3 (Enhanced Clarity & Frames)
+   =============================== */
+
+/* Scoped to .tos-root only – no global overrides */
+.tos-root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000 0%, #2c0a2e 50%, #33001a 100%);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  overflow-y: auto;
+  position: relative;
+  padding: 80px 20px 40px;
+  box-sizing: border-box;
+  width: 100vw;
+}
+
+.tos-root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 105, 180, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.4) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* WRAPPER */
+.tos-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+/* CARD BASE */
+.tos-card {
+  background: rgba(255, 255, 255, 0.08); /* Slightly more opaque for better text readability */
+  backdrop-filter: blur(15px); /* Stronger blur for contrast */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Brighter border */
+  border-radius: 20px;
+  padding: 32px; /* Increased padding for more space */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tos-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #ff69b4, #ff1493);
+}
+
+.tos-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* LAYOUT CONTROL */
+.tos-card.header {
+  grid-column: span 12;
+}
+
+.tos-card.half {
+  grid-column: span 6;
+}
+
+.tos-card.service {
+  grid-column: span 4;
+}
+
+.tos-card.center {
+  grid-column: 5 / span 4; /* Wider span for Netflix to avoid narrow look */
+  justify-self: center;
+}
+
+/* HEADER */
+.tos-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tos-header h1 {
+  font-size: 28px;
+  margin: 0;
+  background: linear-gradient(135deg, #fff, #ffb6c1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* AVATAR */
+.tos-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.tos-header:hover .tos-thumb {
+  transform: scale(1.1);
+}
+
+/* BANNER */
+.tos-banner {
+  width: 100%;
+  border-radius: 16px;
+  margin-top: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* TITLES */
+.tos-card h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.tos-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ff69b4;
+}
+
+/* SERVICE TITLE FRAME */
+.service-title {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block; /* Frame around h3 content */
+  backdrop-filter: blur(10px);
+}
+
+/* LIST – Enhanced readability, no arrow */
+.tos-card ul {
+  padding-left: 0; /* No left padding since no arrow */
+  margin: 0;
+  list-style: none; /* Remove default bullets */
+}
+
+.tos-card li {
+  margin-bottom: 10px; /* More space between lines */
+  line-height: 1.8; /* Tighter but readable */
+  color: #f0f0f0; /* Brighter text for clarity */
+  position: relative;
+  font-size: 15px; /* Slightly larger font */
+  padding-left: 0; /* No indent needed with dodoot inline */
+}
+
+.tos-card li::before {
+  content: none; /* Remove pink arrow */
+}
+
+/* WARNING */
+.warn {
+  margin-top: 12px;
+  color: #ff6b6b;
+  font-weight: 600;
+  padding: 10px 14px;
+  background: rgba(255, 107, 107, 0.15);
+  border-radius: 8px;
+  border-left: 4px solid #ff6b6b;
+  font-size: 14px;
+}
+
+/* META TEXT */
+.tos-meta-text {
+  margin-top: 12px;
+}
+
+.tos-meta-text h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.tos-meta-text ul {
+  padding-left: 0;
+}
+
+.tos-meta-text li {
+  padding-left: 0;
+}
+
+/* EMOJI – Larger size */
+.tos-emoji {
+  width: 20px !important;
+  height: 20px !important;
+  vertical-align: middle;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .tos-root {
+    padding: 60px 16px 32px;
+  }
+
+  .tos-wrapper {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+  }
+
+  .tos-card.header {
+    grid-column: span 8;
+  }
+
+  .tos-card.half {
+    grid-column: span 4;
+  }
+
+  .tos-card.service {
+    grid-column: span 4;
+  }
+
+  .tos-card.center {
+    grid-column: 3 / span 4; /* Wider on tablet too */
+  }
+
+  .tos-header h1 {
+    font-size: 24px;
+  }
+
+  .tos-card {
+    padding: 28px; /* Slightly less on tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .tos-root {
+    padding: 40px 12px 24px;
+  }
+
+  .tos-wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tos-card {
+    grid-column: span 1 !important;
+    padding: 24px;
+  }
+
+  .tos-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .tos-header h1 {
+    font-size: 22px;
+  }
+
+  .tos-thumb {
+    width: 48px;
+    height: 48px;
+  }
+
+  .tos-card h2 {
+    font-size: 18px;
+  }
+
+  .tos-card h3 {
+    font-size: 16px;
+  }
+
+  .tos-card li {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .service-title {
+    padding: 8px 12px;
+  }
+}
