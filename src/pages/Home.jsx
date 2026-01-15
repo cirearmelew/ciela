@@ -190,7 +190,7 @@ const Home = () => {
 
         {/* Image Container Example */}
         <div className="content-image-container">
-          <img src="https://cdn.discordapp.com/attachments/923472265021120594/1460381962228338800/yah_2nd_one.png?ex=696807b0&is=6966b630&hm=97cf3849dddff4d3b8f8ecc878abd2c5416f3191efc7074bec86f069f0990946" alt="Line 1" />
+          <img src="https://cdn.discordapp.com/attachments/1395671984779694091/1395715459092975756/d12.png?ex=69696b90&is=69681a10&hm=0e09ebf9d76dcbcd8dd055645d7b375393305b7f785a032ea526bb7fcdac52e4" alt="Line 1" />
         </div>
 
         {/* Text with custom emoji */}
